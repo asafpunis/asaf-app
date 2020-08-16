@@ -34,9 +34,18 @@ const loginUserController = require('./controllers/loginUser')
 const logoutController = require('./controllers/logout')
 const flash = require('connect-flash');
 
-app.listen(4000, ()=>{
-    console.log('App listerning on port 4000')
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 4000;
+}
+
+app.listen(port, ()=>{
+    console.log('App listening...')
 })
+
+/*app.listen(4000, ()=>{
+    console.log('App listerning on port 4000')
+})*/
 
 global.loggedIn = null;
 
